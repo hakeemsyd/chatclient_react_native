@@ -7,11 +7,15 @@ export default class login extends React.Component {
 		this.state = { username: 'dummy-user'};
 	}
 
-	onPress() {
+	onPress(navigation) {
 		console.log(this.state.username);	
+		if(navigation){
+			navigation('Chat');
+		}
 	} 
 
 	render() {
+	    const { navigate } = this.props.navigation;
 		return (
 		<View style={styles.container}>	
 			<View style={styles.loginContainer}>
@@ -26,7 +30,7 @@ export default class login extends React.Component {
 				<TouchableHighlight
 					style={styles.button}
 					underlayColor={'#328FE6'}
-					onPress={() => this.onPress()}
+					onPress={() => this.onPress(navigate)}
 				>
 					<Text style={styles.label}>LOGIN</Text>
 				</TouchableHighlight>
