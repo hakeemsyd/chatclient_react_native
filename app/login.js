@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableHighlight } from 'react-native';
 
 export default class login extends React.Component {
+	static navigationOptions = {
+		title: 'Chuss Login'
+	}
 	constructor(props) {
 		super(props);
 		this.state = { username: 'dummy-user'};
@@ -10,7 +13,7 @@ export default class login extends React.Component {
 	onPress(navigation) {
 		console.log(this.state.username);	
 		if(navigation){
-			navigation('Chat');
+			navigation('Chat', {username: this.state.username});
 		}
 	} 
 

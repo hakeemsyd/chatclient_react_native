@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableHighlight } from 'react-native';
 
 export default class chat extends Component {
+	static navigationOptions = {
+		title: 'Chatroom'
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = { msg: ''};
@@ -12,10 +16,11 @@ export default class chat extends Component {
 	} 
 
 	render() {
+		const { params } = this.props.navigation.state;
 		return (
 			
 			<Text>
-				Hello
+				Hello {params.username}
 			</Text>
 		)
 	}
